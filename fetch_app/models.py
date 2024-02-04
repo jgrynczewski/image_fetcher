@@ -7,6 +7,7 @@ User = get_user_model()
 
 class Image(models.Model):
     url = models.URLField()
+    image = models.ImageField(upload_to='media/')
     name = models.CharField(max_length=100)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     send_to = models.ManyToManyField('Receiver', through='ImageReceiver')
